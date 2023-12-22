@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import SidePanel from './component/SidePanel';
 import './App.css';
+import BusinessSteps from './component/BusinessSteps';
+import ProductSteps from './component/ProductSteps';
+import ConsumerSteps from './component/ConsumerSteps';
+import FragranceSteps from './component/FragranceSteps';
 
-function App() {
+const App = () => {
+  const [payload, setPayload] = useState({});
+  console.log(payload)
+  const [activePanel, setActivePanel] = useState(0);
+
+  const showStepsBasedOnPanel = () => {
+    switch (activePanel) {
+      case 0:
+        return <BusinessSteps payload={payload} setPayload={setPayload} />
+
+      case 1:
+        return <ProductSteps payload={payload} setPayload={setPayload} />
+
+      case 2:
+        return <ConsumerSteps payload={payload} setPayload={setPayload} />
+      case 3:
+        return <FragranceSteps payload={payload} setPayload={setPayload} />
+
+      default:
+        break;
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='client-briefing-210'>
+      <div className='client-briefing-210-child'>
+        {showStepsBasedOnPanel()}
+      </div>
+      <SidePanel activePanel={activePanel} setActivePanel={setActivePanel} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
