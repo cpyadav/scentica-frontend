@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { Slider } from 'antd';
 
-export default ({ signalIfValid, label, placeholder, pField, payload, setPayload, setActiveStep, activeStep }) => {
+
+export default ({ signalIfValid, label, placeholder, pField, payload, setPayload, setActiveStep, activeStep, defaultValue, min, max, range }) => {
     const signalParent = (isValid) => {
         // signalIfValid(isValid)
     }
@@ -31,15 +33,16 @@ export default ({ signalIfValid, label, placeholder, pField, payload, setPayload
                         <span className="span26">1</span>
                         <span>/3)</span>
                     </div>
-                    <input
-                        className='u-full-width'
-                        placeholder={placeholder}
-                        type='text'
-                        onChange={e => updatePayload(e.target.value)}
-                        value={payload[pField] || ''}
-                        autoFocus
-                        required
-                    />
+                    <div className='tab-pills'>
+                        <Slider 
+                            defaultValue={defaultValue} 
+                            tooltip={{ open: true }}
+                            min={min}
+                            max={max} 
+                            onChange={(val) => updatePayload(val)}
+                            range={range}
+                        />
+                    </div>
                     <div className='text-center'>
                         <button onClick={() => {
                             setActiveStep(activeStep + 1)

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './common.css'; // Import your CSS file
 
-export default ({ signalIfValid, label, placeholder, pField, payload, setPayload, fields }) => {
+export default ({ signalIfValid, label, placeholder, pField, payload, setPayload, fields, setActiveStep, activeStep }) => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
 
     const signalParent = (isValid) => {
-        signalIfValid(isValid)
+        // signalIfValid(isValid)
     }
 
     useEffect(() => {
@@ -51,6 +51,11 @@ export default ({ signalIfValid, label, placeholder, pField, payload, setPayload
                             ))}
                         </ul>
                     )}
+                </div>
+                <div className='text-center'>
+                    <button onClick={() => {
+                        setActiveStep(activeStep + 1)
+                    }}>Next</button>
                 </div>
             </div>
         </div>

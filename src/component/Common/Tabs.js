@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-export default ({ signalIfValid, label, placeholder, pField, payload, setPayload, fields }) => {
+export default ({ signalIfValid, label, placeholder, pField, payload, setPayload, fields, setActiveStep, activeStep }) => {
     const signalParent = (isValid) => {
-        signalIfValid(isValid)
+        // signalIfValid(isValid)
     }
 
     useEffect(() => {
@@ -35,6 +35,11 @@ export default ({ signalIfValid, label, placeholder, pField, payload, setPayload
                         {fields.map((d,index) => {
                             return <span key={index} onClick={() => updatePayload(d.name)} className={payload[pField] === d.name ? 'active' : ''}>{d.name}</span>
                         })}
+                    </div>
+                    <div className='text-center'>
+                        <button onClick={() => {
+                            setActiveStep(activeStep + 1)
+                        }}>Next</button>
                     </div>
                 </div>
             </div>
