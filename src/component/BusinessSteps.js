@@ -17,16 +17,14 @@ const OPTIONS = [
     }
 ]
 
-export default ({ payload, setPayload }) => {
-    const [activeStep, setActiveStep] = useState(0);
-
+export default (props) => {
     return (
-        <Steps activeStep={activeStep}
+        <Steps {...props}
             items={OPTIONS}
         >
-            <Text activeStep={activeStep} setActiveStep={setActiveStep} pField='company_name' title='Company Name' label='Company Name' placeholder='Write your company name' payload={payload} setPayload={setPayload} />
-            <Text activeStep={activeStep} setActiveStep={setActiveStep} pField='industry' title='Industry' label='Industry' placeholder='Select an industry' payload={payload} setPayload={setPayload} />
-            <Text activeStep={activeStep} setActiveStep={setActiveStep} pField='brand_vision' title="Brand's Vision" label="Brand's Vision" placeholder='Write about your brand' payload={payload} setPayload={setPayload} />
+            <Text count={OPTIONS.length} {...props} pField='company_name' title='Company Name' label='Company Name' placeholder='Write your company name' />
+            <Text count={OPTIONS.length} {...props} pField='industry' title='Industry' label='Industry' placeholder='Select an industry' />
+            <Text count={OPTIONS.length} {...props} pField='brand_vision' title="Brand's Vision" label="Brand's Vision" placeholder='Write about your brand' />
         </Steps>
     )
 }

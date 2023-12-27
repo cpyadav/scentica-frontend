@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-export default ({ signalIfValid, label, placeholder, pField, payload, setPayload, setActiveStep, activeStep }) => {
+export default ({ setSignalIfValid, activeStep, count, label, placeholder, pField, payload, setPayload }) => {
     const signalParent = (isValid) => {
-        // signalIfValid(isValid)
+        setSignalIfValid(isValid)
     }
 
     useEffect(() => {
@@ -28,8 +28,8 @@ export default ({ signalIfValid, label, placeholder, pField, payload, setPayload
                     <label>{label}</label>
                     <div className="div27">
                         <span>(</span>
-                        <span className="span26">1</span>
-                        <span>/3)</span>
+                        <span className="span26">{activeStep + 1}</span>
+                        <span>/{count})</span>
                     </div>
                     <input
                         className='u-full-width'
@@ -40,11 +40,6 @@ export default ({ signalIfValid, label, placeholder, pField, payload, setPayload
                         autoFocus
                         required
                     />
-                    <div className='text-center'>
-                        <button onClick={() => {
-                            setActiveStep(activeStep + 1)
-                        }}>Next</button>
-                    </div>
                 </div>
             </div>
         </div>)

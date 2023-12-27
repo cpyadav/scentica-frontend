@@ -94,21 +94,20 @@ const OPTIONS = [
 ]
 
   
-export default ({ payload, setPayload }) => {
-    const [activeStep, setActiveStep] = useState(0);
+export default (props) => {
     return (
-        <Steps activeStep={activeStep}
+        <Steps {...props}
             items={OPTIONS}
         >
-            <Text activeStep={activeStep} setActiveStep={setActiveStep} pField='name' title='Name' label='Product Name' placeholder='Write your Product Name' payload={payload} setPayload={setPayload} />
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='category' title='Category' label='Select Product Category' placeholder='Select an industry' payload={payload} setPayload={setPayload} fields={P_CATEGORY} />
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='type' title="Type" label="Select Product Type" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} />
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='packaging' title="Packaging" label="Select Product Packaging" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} />
-            <Slider activeStep={activeStep} setActiveStep={setActiveStep} pField='size' title="Size" label="Select Product Size" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} defaultValue={30} range={false} min={2} max={50} />
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='formate' title="Formate" label="Select Product Formate" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} />
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='market' title="Market" label="Select Current Markets/focus Market" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} />
-            <Text activeStep={activeStep} setActiveStep={setActiveStep} pField='price_range' label='Select Price Range' placeholder='Min' payload={payload} setPayload={setPayload} />
-            <Text activeStep={activeStep} setActiveStep={setActiveStep} pField='ref_link' label='Share Fragrance Benchmark' placeholder='Past perfume refrence links in the box' payload={payload} setPayload={setPayload} />
+            <Text count={OPTIONS.length} {...props} pField='name' title='Name' label='Product Name' placeholder='Write your Product Name' />
+            <Avatar count={OPTIONS.length} {...props} pField='category' title='Category' label='Select Product Category' placeholder='Select an industry' fields={P_CATEGORY} />
+            <Avatar count={OPTIONS.length} {...props} pField='type' title="Type" label="Select Product Type" placeholder='' fields={P_TYPE} />
+            <Avatar count={OPTIONS.length} {...props} pField='packaging' title="Packaging" label="Select Product Packaging" placeholder='' fields={P_TYPE} />
+            <Slider count={OPTIONS.length} {...props} pField='size' title="Size" label="Select Product Size" placeholder='' fields={P_TYPE} defaultValue={30} range={false} min={2} max={50} />
+            <Avatar count={OPTIONS.length} {...props} pField='formate' title="Formate" label="Select Product Formate" placeholder='' fields={P_TYPE} />
+            <Avatar count={OPTIONS.length} {...props} pField='market' title="Market" label="Select Current Markets/focus Market" placeholder='' fields={P_TYPE} />
+            <Text count={OPTIONS.length} {...props} pField='price_range' label='Select Price Range' placeholder='Min' />
+            <Text count={OPTIONS.length} {...props} pField='ref_link' label='Share Fragrance Benchmark' placeholder='Past perfume refrence links in the box' />
         </Steps>
     )
 }

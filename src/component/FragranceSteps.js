@@ -70,20 +70,19 @@ const P_TYPE = [{
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 }]
 
-export default ({ payload, setPayload }) => {
-    const [activeStep, setActiveStep] = useState(0);
+export default (props) => {
     return (
-        <Steps activeStep={activeStep}
+        <Steps {...props}
             // prevButton={{ style: { display: 'none' } }}
             // nextButton={{ title: 'Next >' }}
             items={OPTIONS}
         >
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='smell' label="Select Fragrance smell" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} />
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='oflactive_dir' label="Select Oflactive Directions" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} />
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='ingredients' label="Select Ingredients" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} />
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='emotions' label="Select Emotions" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} />
-            <Avatar activeStep={activeStep} setActiveStep={setActiveStep} pField='colors' label="Select Colors" placeholder='' payload={payload} setPayload={setPayload} fields={P_TYPE} />
-            <Slider activeStep={activeStep} setActiveStep={setActiveStep} pField='dosage' label="Select Dosage" placeholder='' payload={payload} setPayload={setPayload} defaultValue={[20, 35]} range={true} min={2} max={50} />
+            <Avatar count={OPTIONS.length} {...props} pField='smell' label="Select Fragrance smell" placeholder='' fields={P_TYPE} />
+            <Avatar count={OPTIONS.length} {...props} pField='oflactive_dir' label="Select Oflactive Directions" placeholder='' fields={P_TYPE} />
+            <Avatar count={OPTIONS.length} {...props} pField='ingredients' label="Select Ingredients" placeholder='' fields={P_TYPE} />
+            <Avatar count={OPTIONS.length} {...props} pField='emotions' label="Select Emotions" placeholder='' fields={P_TYPE} />
+            <Avatar count={OPTIONS.length} {...props} pField='colors' label="Select Colors" placeholder='' fields={P_TYPE} />
+            <Slider count={OPTIONS.length} {...props} pField='dosage' label="Select Dosage" placeholder='' defaultValue={[20, 35]} range={true} min={2} max={50} />
         </Steps>
     )
 }

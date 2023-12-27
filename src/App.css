@@ -415,7 +415,7 @@ button:disabled {
   width: 100%;
   float: left;
   box-sizing: border-box; 
-  margin: 50px 0 100px 0;
+  margin: 50px 0;
 }
 
 /* For devices larger than 400px */
@@ -800,4 +800,20 @@ there.
 
 .text-center {
   text-align: -webkit-center;
+}
+
+.bread-crumb .active {
+  color: var(--color-darkgreen);
+}
+
+.bread-crumb .inactive {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.bread-crumb .inactive:hover {
+  color: var(--color-darkgreen);
+}
+
+.ant-breadcrumb-link:hover {
+  color: var(--color-darkgreen);
 }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './common.css'; // Import your CSS file
 
-export default ({ signalIfValid, label, placeholder, pField, payload, setPayload, fields, setActiveStep, activeStep }) => {
+export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayload, fields, activeStep, count }) => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
 
     const signalParent = (isValid) => {
-        // signalIfValid(isValid)
+        setSignalIfValid(isValid)
     }
 
     useEffect(() => {
@@ -31,8 +31,8 @@ export default ({ signalIfValid, label, placeholder, pField, payload, setPayload
                 <label>{label}</label>
                 <div className="div27">
                     <span>(</span>
-                    <span className="span26">1</span>
-                    <span>/3)</span>
+                    <span className="span26">{activeStep + 1}</span>
+                    <span>/{count})</span>
                 </div>
                 <div className="custom-select">
                     <input
@@ -51,11 +51,6 @@ export default ({ signalIfValid, label, placeholder, pField, payload, setPayload
                             ))}
                         </ul>
                     )}
-                </div>
-                <div className='text-center'>
-                    <button onClick={() => {
-                        setActiveStep(activeStep + 1)
-                    }}>Next</button>
                 </div>
             </div>
         </div>

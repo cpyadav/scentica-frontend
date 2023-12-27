@@ -14,12 +14,15 @@ const LEFT_PANEL = [{
     label: 'Tell us about Fragrance'
 }]
 
-export default ({setActivePanel, activePanel}) => {
+export default ({setActivePanel, activePanel, setActiveStep}) => {
   return (
     <div className="rectangle-parent20">
         {LEFT_PANEL.map(d => {
             return(
-                <div onClick={() => setActivePanel(d.key)} key={d.key} className='tell-us-about'><span className={activePanel === d.key ? 'active' : ''}>{d.label}</span></div>
+                <div onClick={() => {
+                    setActiveStep(0);
+                    setActivePanel(d.key);
+                }} key={d.key} className='tell-us-about'><span className={activePanel === d.key ? 'active' : ''}>{d.label}</span></div>
             )
         })}
       </div>

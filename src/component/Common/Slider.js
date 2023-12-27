@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Slider } from 'antd';
 
 
-export default ({ signalIfValid, label, placeholder, pField, payload, setPayload, setActiveStep, activeStep, defaultValue, min, max, range }) => {
+export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayload, defaultValue, min, max, range, activeStep, count }) => {
     const signalParent = (isValid) => {
-        // signalIfValid(isValid)
+        setSignalIfValid(isValid)
     }
 
     useEffect(() => {
@@ -30,8 +30,8 @@ export default ({ signalIfValid, label, placeholder, pField, payload, setPayload
                     <label>{label}</label>
                     <div className="div27">
                         <span>(</span>
-                        <span className="span26">1</span>
-                        <span>/3)</span>
+                        <span className="span26">{activeStep + 1}</span>
+                        <span>/{count})</span>
                     </div>
                     <div className='tab-pills'>
                         <Slider 
@@ -42,11 +42,6 @@ export default ({ signalIfValid, label, placeholder, pField, payload, setPayload
                             onChange={(val) => updatePayload(val)}
                             range={range}
                         />
-                    </div>
-                    <div className='text-center'>
-                        <button onClick={() => {
-                            setActiveStep(activeStep + 1)
-                        }}>Next</button>
                     </div>
                 </div>
             </div>

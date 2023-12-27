@@ -8,21 +8,22 @@ import FragranceSteps from './component/FragranceSteps';
 
 const App = () => {
   const [payload, setPayload] = useState({});
-  console.log(payload)
   const [activePanel, setActivePanel] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+  const [signalIfValid, setSignalIfValid] = useState(false);
 
   const showStepsBasedOnPanel = () => {
     switch (activePanel) {
       case 0:
-        return <BusinessSteps payload={payload} setPayload={setPayload} />
+        return <BusinessSteps activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
 
       case 1:
-        return <ProductSteps payload={payload} setPayload={setPayload} />
+        return <ProductSteps activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
 
       case 2:
-        return <ConsumerSteps payload={payload} setPayload={setPayload} />
+        return <ConsumerSteps activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
       case 3:
-        return <FragranceSteps payload={payload} setPayload={setPayload} />
+        return <FragranceSteps activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
 
       default:
         break;
@@ -33,8 +34,13 @@ const App = () => {
     <div className='client-briefing-210'>
       <div className='client-briefing-210-child'>
         {showStepsBasedOnPanel()}
+        <div className='text-center'>
+            <button onClick={() => {
+              if(signalIfValid) setActiveStep(activeStep + 1)
+            }}>{'Test >'}</button>
+        </div>
       </div>
-      <SidePanel activePanel={activePanel} setActivePanel={setActivePanel} />
+      <SidePanel activePanel={activePanel} setActivePanel={setActivePanel} activeStep={activeStep} setActiveStep={setActiveStep}/>
     </div>
   )
 }
