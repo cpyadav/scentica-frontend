@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Input } from 'antd';
 
-export default ({ setSignalIfValid, activeStep, count, label, placeholder, pField, payload, setPayload }) => {
+export default ({ setSignalIfValid, activeStep, count, label, placeholder, pField, payload, setPayload, selectBefore, type }) => {
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
     }
@@ -36,6 +36,8 @@ export default ({ setSignalIfValid, activeStep, count, label, placeholder, pFiel
                 placeholder={placeholder}
                 onChange={e => updatePayload(e.target.value)}
                 value={payload[pField] || ''}
+                addonBefore={selectBefore}
+                type={type || 'text'}
             />
         </div>)
 }

@@ -15,7 +15,7 @@ export default ({items, activeStep, children, setActivePanel, activePanel, setAc
     })
 
     function itemRender(route) {
-        return <span className={`${route.id <= activeStep ? 'active' : 'inactive'}`}>{route.title}</span>
+        return <span onClick={() => route.id <= activeStep ? setActiveStep(route.id) : null} className={`${route.id <= activeStep ? 'active' : 'inactive'}`}>{route.title}</span>
       }
     
     return (

@@ -11,6 +11,7 @@ const App = () => {
   const [activePanel, setActivePanel] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
   const [signalIfValid, setSignalIfValid] = useState(false);
+  // console.log(payload)
 
   const showStepsBasedOnPanel = () => {
     switch (activePanel) {

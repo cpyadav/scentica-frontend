@@ -55,11 +55,11 @@ export default ({ setSignalIfValid, label, multiple, pField, payload, setPayload
             <div className='field-header'>
                 <label>{label}</label>
                 {multiple && <p>You can select maximum 3 options!</p>}
-                <div className="div27">
+                {count && <div className="div27">
                     <span>(</span>
                     <span className="span26">{activeStep + 1}</span>
                     <span>/{count})</span>
-                </div>
+                </div>}
             </div>
             <div className='avatar-block'>
                 {fields.map((d, index) => {

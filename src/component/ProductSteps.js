@@ -4,20 +4,24 @@ import Avatar from './Common/Avatar';
 import Slider from './Common/Slider';
 import Group from '../Group.png'
 import Steps from './Steps';
+import { Select } from 'antd';
+import FocusMarket from './Views/FocusMarket';
+const { Option } = Select;
+
 
 const P_CATEGORY = [{
     name: 'Air Care',
     src: Group
-},{
+}, {
     name: 'Fabric Care',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Fine Fragrance',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Cosmetic',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Skin Care',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 }]
@@ -25,25 +29,25 @@ const P_CATEGORY = [{
 const P_TYPE = [{
     name: 'Airsol sprays',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Plug-in air fresheneres',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Reed diffusers',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Scented candles',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Essential oil diffusers',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Gel air freshners',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Potpourii',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
-},{
+}, {
     name: 'Scented sachets',
     src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 }, {
@@ -93,7 +97,61 @@ const OPTIONS = [
     }
 ]
 
-  
+const Countries = [
+    {
+        name: 'Asia',
+        src: Group,
+        countries: [{
+            name: 'Label 1'
+        }, {
+            name: 'Label 2'
+        }, {
+            name: 'Label 3'
+        }, {
+            name: 'Label 4'
+        }, {
+            name: 'Label 5'
+        }]
+    },
+    {
+        name: 'North America',
+        src: Group,
+        countries: []
+    },
+    {
+        name: "South America",
+        src: Group,
+        countries: [{
+            name: 'Argentina'
+        }, {
+            name: 'Bolivia'
+        }, {
+            name: 'Columbia'
+        }, {
+            name: 'Brazil'
+        }, {
+            name: 'Peru'
+        }]
+    },
+    {
+        name: "Australia",
+        src: Group,
+        countries: []
+    },
+    {
+        name: "Europe",
+        src: Group,
+        countries: []
+    }
+]
+
+const selectBefore = (
+    <Select defaultValue="$">
+        <Option value="$">$</Option>
+    </Select>
+);
+
+
 export default (props) => {
     return (
         <Steps {...props}
@@ -105,8 +163,8 @@ export default (props) => {
             <Avatar count={OPTIONS.length} {...props} pField='packaging' title="Packaging" label="Select Product Packaging" placeholder='' fields={P_TYPE} />
             <Slider count={OPTIONS.length} {...props} pField='size' title="Size" label="Select Product Size" placeholder='' fields={P_TYPE} defaultValue={30} range={false} min={2} max={50} />
             <Avatar count={OPTIONS.length} {...props} pField='formate' title="Formate" label="Select Product Formate" placeholder='' fields={P_TYPE} />
-            <Avatar count={OPTIONS.length} {...props} pField='market' title="Market" label="Select Current Markets/ focus Market" placeholder='' fields={P_TYPE} />
-            <Text count={OPTIONS.length} {...props} pField='price_range' label='Select Price Range' placeholder='Min' />
+            <FocusMarket count={OPTIONS.length} {...props} pField='market' title="Market" label="Select Current Markets/ focus Market" placeholder='' fields={Countries} />
+            <Text count={OPTIONS.length} {...props} pField='price' label='Select Current / Planned Product Price' placeholder='Enter amount' selectBefore={selectBefore} type={'number'} />
             <Text count={OPTIONS.length} {...props} pField='ref_link' label='Share Fragrance Benchmark' placeholder='Past perfume refrence links in the box' />
         </Steps>
     )

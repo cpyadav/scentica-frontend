@@ -648,7 +648,7 @@ select {
   /* margin: 25px 0; */
   width: 100%;
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 20px!important;
   font-weight: 300;
   line-height: 24px;
   letter-spacing: 0em;
@@ -688,8 +688,9 @@ select:focus {
 label,
 legend { 
   color: var(--color-black);
+  font-family: Inter;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
@@ -898,6 +899,10 @@ there.
 :where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper:focus, :where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper:focus-within, :where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper:hover {
   border-color: var(--color-lightgreen)!important;
   border: 2px solid var(--color-lightgreen)!important;
+}
+
+:where(.css-dev-only-do-not-override-gzal6t).ant-input:hover {
+  border-color: var(--color-lightgreen)!important;
 }
 
 /* :where(.css-dev-only-do-not-override-gzal6t).ant-input:hover {

@@ -51,7 +51,7 @@
     padding: 10px 20px;
     border-radius: 3px;
     border: 1px solid #AEAEAE;
-    margin-right: 10px;
+    margin: 10px;
   }
 
   .tab-pills > span:hover {
@@ -94,7 +94,7 @@
   .avatar-block img {
     width: 124px;
     height: 124px;
-    /* border: 0.5px solid #000000; */
+    border: 0.5px solid #000000;
     border-radius: 50%;
     margin: 20px;
   }
@@ -125,3 +125,13 @@ ol {
   font-size: 20px;
 }
   
+.price-range {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price-range label {
+  padding: 10px;
+  font-weight: 500;
+}
