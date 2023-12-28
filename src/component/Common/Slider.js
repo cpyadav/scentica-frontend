@@ -24,26 +24,24 @@ export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayl
     }
 
     return (
-        <div>
-            <div className='row'>
-                <div className='columns' style={{ position: 'relative' }}>
-                    <label>{label}</label>
-                    <div className="div27">
-                        <span>(</span>
-                        <span className="span26">{activeStep + 1}</span>
-                        <span>/{count})</span>
-                    </div>
-                    <div className='tab-pills'>
-                        <Slider 
-                            defaultValue={defaultValue} 
-                            tooltip={{ open: true }}
-                            min={min}
-                            max={max} 
-                            onChange={(val) => updatePayload(val)}
-                            range={range}
-                        />
-                    </div>
+        <div className='columns' style={{ position: 'relative' }}>
+            <div className='field-header'>
+                <label>{label}</label>
+                <div className="div27">
+                    <span>(</span>
+                    <span className="span26">{activeStep + 1}</span>
+                    <span>/{count})</span>
                 </div>
+            </div>
+            <div className='tab-pills'>
+                <Slider
+                    defaultValue={defaultValue}
+                    tooltip={{ open: true }}
+                    min={min}
+                    max={max}
+                    onChange={(val) => updatePayload(val)}
+                    range={range}
+                />
             </div>
         </div>)
 }

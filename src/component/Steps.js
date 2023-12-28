@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Breadcrumb } from 'antd';
 
-export default ({items, activeStep, children, setActivePanel, activePanel}) => {
+export default ({items, activeStep, children, setActivePanel, activePanel, setActiveStep}) => {
 
     if(children.length === activeStep) {
-        setActivePanel(activePanel+1)
+        setActivePanel(activePanel+1);
+        setActiveStep(0)
     }
 
     const filteredChildren = React.Children.toArray(children).filter((child, index) => {

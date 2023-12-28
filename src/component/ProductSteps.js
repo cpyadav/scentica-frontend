@@ -105,7 +105,7 @@ export default (props) => {
             <Avatar count={OPTIONS.length} {...props} pField='packaging' title="Packaging" label="Select Product Packaging" placeholder='' fields={P_TYPE} />
             <Slider count={OPTIONS.length} {...props} pField='size' title="Size" label="Select Product Size" placeholder='' fields={P_TYPE} defaultValue={30} range={false} min={2} max={50} />
             <Avatar count={OPTIONS.length} {...props} pField='formate' title="Formate" label="Select Product Formate" placeholder='' fields={P_TYPE} />
-            <Avatar count={OPTIONS.length} {...props} pField='market' title="Market" label="Select Current Markets/focus Market" placeholder='' fields={P_TYPE} />
+            <Avatar count={OPTIONS.length} {...props} pField='market' title="Market" label="Select Current Markets/ focus Market" placeholder='' fields={P_TYPE} />
             <Text count={OPTIONS.length} {...props} pField='price_range' label='Select Price Range' placeholder='Min' />
             <Text count={OPTIONS.length} {...props} pField='ref_link' label='Share Fragrance Benchmark' placeholder='Past perfume refrence links in the box' />
         </Steps>

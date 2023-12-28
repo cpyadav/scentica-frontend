@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+* {
+  font-family: 'Inter';  
+}
+
 .App {
   text-align: center;
 }
@@ -61,11 +67,13 @@ body {
   --color-gray-200: rgba(0, 0, 0, 0.6);
   --color-gray-300: rgba(0, 0, 0, 0.58);
   --color-white: #fff;
-  --color-black: #000;
+  --color-black: rgba(0, 0, 0, 1);
   --color-dimgray-100: #686868;
   --dark-medium: #4f4f4f;
   --color-seagreen: #09572c;
   --color-darkgray: #aeaeae;
+  --color-lightgreen: #A1C1A8;
+  --color-lightgray: #D9D9D9;
 
   /* Gaps */
   --gap-3xs: 10px;
@@ -119,7 +127,7 @@ button:disabled {
   background-color: var(--color-white);
   /* width: calc(100% - 340px); */
   height: 100vh;
-  padding: 50px 50px 50px 200px;
+  padding: 65px 100px;
   overflow: auto;
 }
 .interfacecopy-icon24 {
@@ -213,7 +221,7 @@ button:disabled {
 }
 .div27 {
   position: absolute;
-  top: 3px;
+  top: 25px;
   /* left: 723px; */
   font-size: var(--font-size-base);
   color: var(--color-gray-100);
@@ -304,19 +312,26 @@ button:disabled {
   height: 900px;
 }
 .tell-us-about {
-  /* position: absolute; */
-  /* top: 65px; */
-  /* left: 56px; */
+  font-size: 14px;
   font-weight: 500;
-  /* color: var(--color-darkgreen); */
-  display: flex;
-  align-items: flex-end;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #00000094;
   width: 121px;
   padding: 25px;
   margin: auto;
   cursor: pointer;
 }
+.tell-us-about:first-child {
+  padding-top: 0;
+}
 .tell-us-about > .active {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
   color: var(--color-darkgreen);
 }
 .tell-us-about97 {
@@ -355,7 +370,7 @@ button:disabled {
   height: 100vh;
   font-size: var(--font-size-sm);
   color: var(--color-gray-300);
-  padding-top: 50px;
+  padding-top: 65px;
   background-color: var(--color-white);
 }
 .client-briefing-210 {
@@ -368,7 +383,6 @@ button:disabled {
   text-align: left;
   font-size: var(--font-size-base);
   color: var(--color-gray-200);
-  /* font-family: var(--font-inter); */
 }
 
 
@@ -415,7 +429,7 @@ button:disabled {
   width: 100%;
   float: left;
   box-sizing: border-box; 
-  margin: 50px 0;
+  margin: 30px 0;
 }
 
 /* For devices larger than 400px */
@@ -429,9 +443,6 @@ button:disabled {
 @media (min-width: 550px) {
   .container {
     width: 80%; }
-  .column,
-  .columns {
-    margin-left: 4%; }
   .column:first-child,
   .columns:first-child {
     margin-left: 0; }
@@ -501,7 +512,6 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: system-ui;
   color: #222; }
 
 
@@ -611,14 +621,20 @@ input[type="password"],
 textarea,
 select {
   height: 66px;
-  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  padding: 6px 10px!important; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
-  border: 1px solid #D1D1D1;
+  border: 2px solid #D9D9D9;
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box; 
-  margin: 25px 0;
+  /* margin: 25px 0; */
   width: 100%;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 /* Removes awkward default styles on some inputs for iOS */
 input[type="email"],
@@ -647,12 +663,18 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid var(--color-darkgreen);
+  border: 2px solid var(--color-lightgreen);
+  border-color: var(--color-lightgreen)!important;
+  box-shadow: none!important;
   outline: 0; }
 label,
-legend {
-  font-weight: 500; 
+legend { 
   color: var(--color-black);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 fieldset {
   padding: 0;
@@ -664,7 +686,9 @@ label > .label-body {
   display: inline-block;
   margin-left: .5rem;
   font-weight: normal; }
-
+  input::placeholder {
+    color: #AEAEAE;
+  }
 
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -804,10 +828,20 @@ there.
 
 .bread-crumb .active {
   color: var(--color-darkgreen);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  text-align: left;
 }
 
 .bread-crumb .inactive {
-  color: rgba(0, 0, 0, 0.45);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .bread-crumb .inactive:hover {
@@ -817,3 +851,48 @@ there.
 .ant-breadcrumb-link:hover {
   color: var(--color-darkgreen);
 }
+
+.field-header {
+  margin: 25px 0;
+}
+
+.bread-crumb li {
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 16px;
+  /* border: none!important; */
+}
+
+.bread-crumb li:first-child {
+  padding-left: 0;
+}
+
+.client-briefing-210-gchild {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Antd design override */
+:where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper {
+  border: 2px solid var(--color-lightgray)!important;
+}
+
+:where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper:focus, :where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper:focus-within, :where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper:hover {
+  border-color: var(--color-lightgreen)!important;
+  border: 2px solid var(--color-lightgreen)!important;
+}
+
+/* :where(.css-dev-only-do-not-override-gzal6t).ant-input:hover {
+  border-color: var(--color-lightgreen)!important;
+}
+
+:where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-track {
+  background-color: var(--color-darkgreen)!important;
+} */
+
+/* :where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle::after {
+  width: 39px;
+  height: 39px;
+  background-color: var(--color-darkgreen)!important;
+  top: -150%;
+} */

@@ -15,15 +15,15 @@ const App = () => {
   const showStepsBasedOnPanel = () => {
     switch (activePanel) {
       case 0:
-        return <BusinessSteps activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
+        return <BusinessSteps setActiveStep={setActiveStep} activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
 
       case 1:
-        return <ProductSteps activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
+        return <ProductSteps setActiveStep={setActiveStep} activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
 
       case 2:
-        return <ConsumerSteps activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
+        return <ConsumerSteps setActiveStep={setActiveStep} activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
       case 3:
-        return <FragranceSteps activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
+        return <FragranceSteps setActiveStep={setActiveStep} activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
 
       default:
         break;
@@ -33,11 +33,13 @@ const App = () => {
   return (
     <div className='client-briefing-210'>
       <div className='client-briefing-210-child'>
-        {showStepsBasedOnPanel()}
-        <div className='text-center'>
-            <button onClick={() => {
-              if(signalIfValid) setActiveStep(activeStep + 1)
-            }}>{'Test >'}</button>
+        <div className='client-briefing-210-gchild'>
+          {showStepsBasedOnPanel()}
+          <div className='text-center'>
+              <button disabled={!signalIfValid} onClick={() => {
+                if(signalIfValid) setActiveStep(activeStep + 1)
+              }}>{'Test >'}</button>
+          </div>
         </div>
       </div>
       <SidePanel activePanel={activePanel} setActivePanel={setActivePanel} activeStep={activeStep} setActiveStep={setActiveStep}/>

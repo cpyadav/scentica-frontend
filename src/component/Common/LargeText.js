@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Input } from 'antd';
 
+const { TextArea } = Input;
+
+
 export default ({ setSignalIfValid, activeStep, count, label, placeholder, pField, payload, setPayload }) => {
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
@@ -32,8 +35,10 @@ export default ({ setSignalIfValid, activeStep, count, label, placeholder, pFiel
                     <span>/{count})</span>
                 </div>
             </div>
-            <Input
+            <TextArea
+                rows={4}
                 placeholder={placeholder}
+                // maxLength={6}
                 onChange={e => updatePayload(e.target.value)}
                 value={payload[pField] || ''}
             />

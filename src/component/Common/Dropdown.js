@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './common.css'; // Import your CSS file
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
 
 export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayload, fields, activeStep, count }) => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -26,32 +28,32 @@ export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayl
     }
 
     return (
-        <div className='row'>
-            <div className='columns' style={{ position: 'relative' }}>
+        <div className='columns' style={{ position: 'relative' }}>
+            <div className='field-header'>
                 <label>{label}</label>
                 <div className="div27">
                     <span>(</span>
                     <span className="span26">{activeStep + 1}</span>
                     <span>/{count})</span>
                 </div>
-                <div className="custom-select">
-                    <input
-                        type="text"
-                        value={payload[pField] || ''}
-                        placeholder={placeholder}
-                        readOnly
-                        onClick={() => setDropdownOpen(!isDropdownOpen)}
-                    />
-                    {isDropdownOpen && (
-                        <ul className="options-list">
-                            {fields.map((option, index) => (
-                                <li key={index} onClick={() => handleOptionClick(option.name)}>
-                                    {option.name}
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
+            </div>
+            <div className="custom-select">
+                <Input
+                    value={payload[pField] || ''}
+                    placeholder={placeholder}
+                    readOnly
+                    onClick={() => setDropdownOpen(!isDropdownOpen)}
+                    suffix={isDropdownOpen ? <UpOutlined className='up-outlined' /> : <DownOutlined className='down-outlined' />}
+                />
+                {isDropdownOpen && (
+                    <ul className="options-list">
+                        {fields.map((option, index) => (
+                            <li key={index} onClick={() => handleOptionClick(option.name)}>
+                                {option.name}
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         </div>
     );

@@ -22,21 +22,19 @@ export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayl
     }
 
     return (
-        <div>
-            <div className='row'>
-                <div className='columns' style={{ position: 'relative' }}>
-                    <label>{label}</label>
-                    <div className="div27">
-                        <span>(</span>
-                        <span className="span26">{activeStep + 1}</span>
-                        <span>/{count})</span>
-                    </div>
-                    <div className='tab-pills'>
-                        {fields.map((d,index) => {
-                            return <span key={index} onClick={() => updatePayload(d.name)} className={payload[pField] === d.name ? 'active' : ''}>{d.name}</span>
-                        })}
-                    </div>
+        <div className='columns' style={{ position: 'relative' }}>
+            <div className='field-header'>
+                <label>{label}</label>
+                <div className="div27">
+                    <span>(</span>
+                    <span className="span26">{activeStep + 1}</span>
+                    <span>/{count})</span>
                 </div>
+            </div>
+            <div className='tab-pills'>
+                {fields.map((d, index) => {
+                    return <span key={index} onClick={() => updatePayload(d.name)} className={payload[pField] === d.name ? 'active' : ''}>{d.name}</span>
+                })}
             </div>
         </div>)
 }
