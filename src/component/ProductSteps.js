@@ -6,6 +6,7 @@ import Group from '../Group.png'
 import Steps from './Steps';
 import { Select } from 'antd';
 import FocusMarket from './Views/FocusMarket';
+import WebsiteLinks from './Views/WebsiteLinks';
 const { Option } = Select;
 
 
@@ -165,7 +166,7 @@ export default (props) => {
             <Avatar count={OPTIONS.length} {...props} pField='formate' title="Formate" label="Select Product Formate" placeholder='' fields={P_TYPE} />
             <FocusMarket count={OPTIONS.length} {...props} pField='market' title="Market" label="Select Current Markets/ focus Market" placeholder='' fields={Countries} />
             <Text count={OPTIONS.length} {...props} pField='price' label='Select Current / Planned Product Price' placeholder='Enter amount' selectBefore={selectBefore} type={'number'} />
-            <Text count={OPTIONS.length} {...props} pField='ref_link' label='Share Fragrance Benchmark' placeholder='Past perfume refrence links in the box' />
+            <WebsiteLinks count={OPTIONS.length} {...props} />
         </Steps>
     )
 }

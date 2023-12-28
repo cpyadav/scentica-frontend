@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-export default ({ setSignalIfValid, label, multiple, pField, payload, setPayload, fields, activeStep, count }) => {
+export default ({ setSignalIfValid, label, multiple,showMLabel, pField, payload, setPayload, fields, activeStep, count }) => {
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
     }
@@ -54,7 +54,7 @@ export default ({ setSignalIfValid, label, multiple, pField, payload, setPayload
         <div className='columns' style={{ position: 'relative' }}>
             <div className='field-header'>
                 <label>{label}</label>
-                {multiple && <p>You can select maximum 3 options!</p>}
+                {showMLabel && <p>You can select maximum 3 options!</p>}
                 {count && <div className="div27">
                     <span>(</span>
                     <span className="span26">{activeStep + 1}</span>

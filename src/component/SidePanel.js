@@ -1,23 +1,9 @@
 import React from 'react';
 
-const LEFT_PANEL = [{
-    key:0,
-    label: 'Tell us about your Business'
-},{
-    key:1,
-    label: 'Tell us about your Product'
-},{
-    key:2,
-    label: 'Tell us about your Consumer'
-},{
-    key:3,
-    label: 'Tell us about Fragrance'
-}]
-
-export default ({setActivePanel, activePanel, setActiveStep}) => {
+export default ({setActivePanel, activePanel, setActiveStep, leftPanel}) => {
   return (
     <div className="rectangle-parent20">
-        {LEFT_PANEL.map(d => {
+        {leftPanel.map(d => {
             return(
                 <div onClick={() => {
                     setActiveStep(0);

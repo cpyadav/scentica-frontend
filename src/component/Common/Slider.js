@@ -33,7 +33,7 @@ export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayl
                     <span>/{count})</span>
                 </div>
             </div>
-            <div className='tab-pills'>
+            <div>
                 <Slider
                     defaultValue={defaultValue}
                     tooltip={{ open: true }}

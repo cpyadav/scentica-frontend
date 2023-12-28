@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Dropdown from '../Common/Dropdown';
 
-export default ({ label, multiple,fields, activeStep, count, ...props }) => {
+export default ({ label, multiple,fields, activeStep, count,payload, setPayload, ...props }) => {
     const [activeCountry, setActiveCountry] = useState();
     const [countryList, setCountryList] = useState([]);
 
 
     useEffect(() => {
         if(activeCountry) {
+            delete payload['market']
             const activeCountries = fields.filter(d => d.name === activeCountry)[0].countries;
             setCountryList(activeCountries)
         }
@@ -34,7 +35,7 @@ export default ({ label, multiple,fields, activeStep, count, ...props }) => {
                     )
                 })}
             </div>
-            <Dropdown {...props} pField='market' title="Market" label="Select Your Market location" placeholder='Select Location' fields={countryList} />
+            <Dropdown {...props} pField='market' title="Market" label="Select Your Market location" placeholder='Select Location' fields={countryList} payload={payload} setPayload={setPayload} />
         </div>
     )
 }

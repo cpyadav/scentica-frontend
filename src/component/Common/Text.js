@@ -26,11 +26,11 @@ export default ({ setSignalIfValid, activeStep, count, label, placeholder, pFiel
         <div className='columns' style={{ position: 'relative' }}>
             <div className='field-header'>
                 <label>{label}</label>
-                <div className="div27">
+                {count && <div className="div27">
                     <span>(</span>
                     <span className="span26">{activeStep + 1}</span>
                     <span>/{count})</span>
-                </div>
+                </div>}
             </div>
             <Input
                 placeholder={placeholder}

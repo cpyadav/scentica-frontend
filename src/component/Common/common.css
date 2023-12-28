@@ -43,7 +43,10 @@
   }
 
   .tab-pills {
-    margin: 25px 0;
+    /* margin: 25px 0; */
+    display: flex;
+    width: 100%;
+    overflow: auto;
   }
 
   .tab-pills > span {
@@ -52,6 +55,7 @@
     border-radius: 3px;
     border: 1px solid #AEAEAE;
     margin: 10px;
+    white-space: nowrap
   }
 
   .tab-pills > span:hover {
