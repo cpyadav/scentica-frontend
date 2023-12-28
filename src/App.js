@@ -38,7 +38,7 @@ const App = () => {
           <div className='text-center'>
               <button disabled={!signalIfValid} onClick={() => {
                 if(signalIfValid) setActiveStep(activeStep + 1)
-              }}>{'Test >'}</button>
+              }}>{'Next >'}</button>
           </div>
         </div>
       </div>
