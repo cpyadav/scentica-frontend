@@ -77,11 +77,11 @@ export default (props) => {
             // nextButton={{ title: 'Next >' }}
             items={OPTIONS}
         >
-            <Avatar count={OPTIONS.length} {...props} pField='smell' label="Select Fragrance smell" placeholder='' fields={P_TYPE} />
-            <Avatar count={OPTIONS.length} {...props} pField='oflactive_dir' label="Select Oflactive Directions" placeholder='' fields={P_TYPE} />
-            <Avatar count={OPTIONS.length} {...props} pField='ingredients' label="Select Ingredients" placeholder='' fields={P_TYPE} />
-            <Avatar count={OPTIONS.length} {...props} pField='emotions' label="Select Emotions" placeholder='' fields={P_TYPE} />
-            <Avatar count={OPTIONS.length} {...props} pField='colors' label="Select Colors" placeholder='' fields={P_TYPE} />
+            <Avatar multiple={true} count={OPTIONS.length} {...props} pField='smell' label="Select Fragrance smell" placeholder='' fields={P_TYPE} />
+            <Avatar multiple={true} count={OPTIONS.length} {...props} pField='oflactive_dir' label="Select Oflactive Directions" placeholder='' fields={P_TYPE} />
+            <Avatar multiple={true} count={OPTIONS.length} {...props} pField='ingredients' label="Select Ingredients" placeholder='' fields={P_TYPE} />
+            <Avatar multiple={true} count={OPTIONS.length} {...props} pField='emotions' label="Select Emotions" placeholder='' fields={P_TYPE} />
+            <Avatar multiple={true} count={OPTIONS.length} {...props} pField='colors' label="Select Colors" placeholder='' fields={P_TYPE} />
             <Slider count={OPTIONS.length} {...props} pField='dosage' label="Select Dosage" placeholder='' defaultValue={[20, 35]} range={true} min={2} max={50} />
         </Steps>
     )
