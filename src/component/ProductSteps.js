@@ -162,7 +162,7 @@ export default (props) => {
             <Avatar count={OPTIONS.length} {...props} pField='category' title='Category' label='Select Product Category' placeholder='Select an industry' fields={P_CATEGORY} />
             <Avatar count={OPTIONS.length} {...props} pField='type' title="Type" label="Select Product Type" placeholder='' fields={P_TYPE} />
             <Avatar count={OPTIONS.length} {...props} pField='packaging' title="Packaging" label="Select Product Packaging" placeholder='' fields={P_TYPE} />
-            <Slider count={OPTIONS.length} {...props} pField='size' title="Size" label="Select Product Size" placeholder='' fields={P_TYPE} defaultValue={30} range={false} min={2} max={50} />
+            <Slider tip="ml" count={OPTIONS.length} {...props} pField='size' title="Size" label="Select Product Size" placeholder='' fields={P_TYPE} defaultValue={30} range={false} min={2} max={50} />
             <Avatar count={OPTIONS.length} {...props} pField='formate' title="Formate" label="Select Product Formate" placeholder='' fields={P_TYPE} />
             <FocusMarket count={OPTIONS.length} {...props} pField='market' title="Market" label="Select Current Markets/ focus Market" placeholder='' fields={Countries} />
             <Text count={OPTIONS.length} {...props} pField='price' label='Select Current / Planned Product Price' placeholder='Enter amount' selectBefore={selectBefore} type={'number'} />

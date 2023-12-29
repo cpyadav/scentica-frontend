@@ -1174,20 +1174,25 @@ there.
   border-color: var(--color-lightgreen) !important;
 }
 
-/* :where(.css-dev-only-do-not-override-gzal6t).ant-input:hover {
+:where(.css-dev-only-do-not-override-gzal6t).ant-input:hover {
   border-color: var(--color-lightgreen)!important;
 }
 
 :where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-track {
   background-color: var(--color-darkgreen)!important;
-} */
+}
 
-/* :where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle::after {
-  width: 39px;
-  height: 39px;
-  background-color: var(--color-darkgreen)!important;
-  top: -150%;
-} */
+:where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle::after {
+  box-shadow: 0 0 0 2px var(--color-darkgreen);
+}
+
+:where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle:hover::after, :where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle:active::after, :where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle:focus::after {
+  box-shadow: 0 0 0 4px var(--color-darkgreen)!important;
+}
+
+:where(.css-dev-only-do-not-override-gzal6t).ant-slider:hover .ant-slider-handle::after {
+  box-shadow: 0 0 0 2px var(--color-darkgreen);
+}
 
 
 .thank-you {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Slider } from 'antd';
 
 
-export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayload, defaultValue, min, max, range, activeStep, count }) => {
+export default ({ setSignalIfValid, label, tip, pField, payload, setPayload, defaultValue, min, max, range, activeStep, count }) => {
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
     }
@@ -41,6 +41,7 @@ export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayl
                     max={max}
                     onChange={(val) => updatePayload(val)}
                     range={range}
+                    tipFormatter={(value) => `${value} ${tip}`}
                 />
             </div>
         </div>)

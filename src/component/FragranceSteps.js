@@ -139,7 +139,7 @@ export default (props) => {
             <Ingredients count={OPTIONS.length} {...props} pField='market' title="Market" label="Select Current Markets/ focus Market" placeholder='' fields={IngredientList} multiple={true} />
             <Avatar showMLabel={true} multiple={true} count={OPTIONS.length} {...props} pField='emotions' label="Select Emotions" placeholder='' fields={P_TYPE} />
             <Avatar showMLabel={true} multiple={true} count={OPTIONS.length} {...props} pField='colors' label="Select Colors" placeholder='' fields={P_TYPE} />
-            <Slider count={OPTIONS.length} {...props} pField='dosage' label="Select Dosage" placeholder='' defaultValue={[20, 35]} range={true} min={2} max={50} />
+            <Slider tip="%" count={OPTIONS.length} {...props} pField='dosage' label="Select Dosage" placeholder='' defaultValue={[20, 35]} range={true} min={2} max={50} />
             <TextRange type={'number'} pFrom={'Min'} pTo={'Max'} count={OPTIONS.length} {...props} pField='price_range' label='Select price range' placeholder='price' />
             <Text count={OPTIONS.length} {...props} pField='ref_link' label='Share Fragrance Benchmark' placeholder='Past perfume refrence links in the box' />
         </Steps>
