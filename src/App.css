@@ -129,10 +129,18 @@ button {
   z-index: 0;
   border-radius: var(--br-8xs);
   cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+button:hover {
+  box-shadow: 0px 8px 11px 0px #00000059;
 }
 
 button:disabled {
   background-color: var(--color-darkgray) !important;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 
