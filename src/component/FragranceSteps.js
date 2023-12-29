@@ -44,34 +44,34 @@ const OPTIONS = [
 
 const P_TYPE = [{
     name: 'Airsol sprays',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 },{
     name: 'Plug-in air fresheneres',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 },{
     name: 'Reed diffusers',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 },{
     name: 'Scented candles',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 },{
     name: 'Essential oil diffusers',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 },{
     name: 'Gel air freshners',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 },{
     name: 'Potpourii',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 },{
     name: 'Scented sachets',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 }, {
     name: 'Incense sticks and cones',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 }, {
     name: 'Cash Air freshner',
-    src: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
+    image: 'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI'
 }]
 
 const IngredientList = [
@@ -79,19 +79,19 @@ const IngredientList = [
         name: 'Citrus Smell',
         ingredient: [{
             name: 'Label 1',
-            src: Group,
+            image: Group,
         }, {
             name: 'Label 2',
-            src: Group,
+            image: Group,
         }, {
             name: 'Label 3',
-            src: Group,
+            image: Group,
         }, {
             name: 'Label 4',
-            src: Group,
+            image: Group,
         }, {
             name: 'Label 5',
-            src: Group,
+            image: Group,
         }]
     },
     {
@@ -102,19 +102,19 @@ const IngredientList = [
         name: "Flowers",
         ingredient: [{
             name: 'Argentina',
-            src: Group,
+            image: Group,
         }, {
             name: 'Bolivia',
-            src: Group,
+            image: Group,
         }, {
             name: 'Columbia',
-            src: Group,
+            image: Group,
         }, {
             name: 'Brazil',
-            src: Group,
+            image: Group,
         }, {
             name: 'Peru',
-            src: Group,
+            image: Group,
         }]
     },
     {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Input } from 'antd';
 
-import { hasNullOrUndefinedOrEmpty } from '../validation'
+import { hasNullOrUndefinedOrEmpty } from '../Utilities/validation'
 
 export default ({ setSignalIfValid, activeStep, count, label, pFrom, pTo, pField, payload, setPayload, type }) => {
     const [from, setFrom] = useState(payload[pField] && payload[pField][0]);

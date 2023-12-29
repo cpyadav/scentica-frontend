@@ -1,6 +1,20 @@
 import React, { useState, useEffect } from 'react'
+import Loader from './Loader'
+import useApi from '../Utilities/service';
 
-export default ({ setSignalIfValid, label, multiple,showMLabel, pField, payload, setPayload, fields, activeStep, count }) => {
+export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload, setPayload, fields, activeStep, count }) => {
+    const config = {
+        method: 'get',
+        url: `https://api.example.com/data?type=${pField}`,
+        // You can include other Axios configuration options here
+    }
+    const { data, loading, error, setConfig } = useApi();
+
+
+    useEffect(() => {
+        setConfig(config)
+    },[pField])
+
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
     }
@@ -15,14 +29,8 @@ export default ({ setSignalIfValid, label, multiple,showMLabel, pField, payload,
     }, [payload[pField]])
 
     const handleImageClick = (imageId) => {
-        const field = payload[pField];
-        if (!field || !field.length) {
-            setPayload({
-                ...payload,
-                [pField]: [imageId]
-            })
-        }
-        else if (field.includes(imageId)) {
+        const field = payload[pField] || [];
+        if (field.includes(imageId)) {
             // If the image is already selected, deselect it
             setPayload({
                 ...payload,
@@ -38,7 +46,7 @@ export default ({ setSignalIfValid, label, multiple,showMLabel, pField, payload,
         // Otherwise, do nothing (limit reached)
     };
 
-    const updatePayload = (val, multiple) => {
+    const updatePayload = (val) => {
         if (multiple) {
             handleImageClick(val)
         }
@@ -52,6 +60,7 @@ export default ({ setSignalIfValid, label, multiple,showMLabel, pField, payload,
 
     return (
         <div className='columns' style={{ position: 'relative' }}>
+            {loading && <Loader />}
             <div className='field-header'>
                 <label>{label}</label>
                 {showMLabel && <p>You can select maximum 3 options!</p>}
@@ -62,10 +71,10 @@ export default ({ setSignalIfValid, label, multiple,showMLabel, pField, payload,
                 </div>}
             </div>
             <div className='avatar-block'>
-                {fields.map((d, index) => {
+                {fields && fields.map((d, index) => {
                     return (
                         <div key={index} className={payload[pField] && payload[pField].includes(d.name) ? 'active' : ''}>
-                            <img key={index} src={d.src} onClick={() => updatePayload(d.name, multiple)} />
+                            <img key={index} src={d.image} onClick={() => updatePayload(d.name)} />
                             <span>{d.name}</span>
                         </div>
                     )

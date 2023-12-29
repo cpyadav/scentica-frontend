@@ -29,7 +29,7 @@ export default ({ label, multiple,fields, activeStep, count,payload, setPayload,
                 {fields.map((d, index) => {
                     return (
                         <div key={index} className={activeCountry === d.name ? 'active' : ''}>
-                            <img key={index} src={d.src} onClick={() => setActiveCountry(d.name)} />
+                            <img key={index} src={d.image} onClick={() => setActiveCountry(d.name)} />
                             <span>{d.name}</span>
                         </div>
                     )

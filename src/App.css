@@ -368,19 +368,32 @@ button:disabled {
   padding: 25px;
   margin: auto;
   cursor: pointer;
+  position: relative;
 }
 
 .tell-us-about:first-child {
-  padding-top: 0;
+  /* padding-top: 0; */
 }
 
-.tell-us-about>.active {
+.tell-us-about.active {
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
   letter-spacing: 0em;
   text-align: left;
   color: var(--color-darkgreen);
+}
+
+.tell-us-about.active::after {
+  content: '';
+  position: absolute;
+  background: #005814;
+  right: -37px;
+  height: 58px;
+  width: 4px;
+  /* height: unset; */
+  border-radius: 4px;
+  top: 15px;
 }
 
 .tell-us-about97 {
@@ -441,7 +454,8 @@ button:disabled {
 }
 
 .client-briefing-210.disabled {
-  pointer-events: none;cursor: not-allowed;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 
@@ -1133,6 +1147,7 @@ there.
 .client-briefing-210-gchild {
   max-width: 800px;
   margin: 0 auto;
+  padding-top: 25px;
 }
 
 /* Antd design override */
