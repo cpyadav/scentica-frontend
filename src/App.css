@@ -1159,38 +1159,38 @@ there.
 }
 
 /* Antd design override */
-:where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper {
+.ant-input-affix-wrapper {
   border: 2px solid var(--color-lightgray) !important;
 }
 
-:where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper:focus,
-:where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper:focus-within,
-:where(.css-dev-only-do-not-override-gzal6t).ant-input-affix-wrapper:hover {
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper:focus-within,
+.ant-input-affix-wrapper:hover {
   border-color: var(--color-lightgreen) !important;
   border: 2px solid var(--color-lightgreen) !important;
 }
 
-:where(.css-dev-only-do-not-override-gzal6t).ant-input:hover {
+.ant-input:hover {
   border-color: var(--color-lightgreen) !important;
 }
 
-:where(.css-dev-only-do-not-override-gzal6t).ant-input:hover {
+.ant-input:hover {
   border-color: var(--color-lightgreen)!important;
 }
 
-:where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-track {
+.ant-slider .ant-slider-track {
   background-color: var(--color-darkgreen)!important;
 }
 
-:where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle::after {
+.ant-slider .ant-slider-handle::after {
   box-shadow: 0 0 0 2px var(--color-darkgreen);
 }
 
-:where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle:hover::after, :where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle:active::after, :where(.css-dev-only-do-not-override-gzal6t).ant-slider .ant-slider-handle:focus::after {
+.ant-slider .ant-slider-handle:hover::after, .ant-slider .ant-slider-handle:active::after, .ant-slider .ant-slider-handle:focus::after {
   box-shadow: 0 0 0 4px var(--color-darkgreen)!important;
 }
 
-:where(.css-dev-only-do-not-override-gzal6t).ant-slider:hover .ant-slider-handle::after {
+.ant-slider:hover .ant-slider-handle::after {
   box-shadow: 0 0 0 2px var(--color-darkgreen);
 }
 
