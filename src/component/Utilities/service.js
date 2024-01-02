@@ -22,7 +22,7 @@ const useApi = (initialConfig) => {
     fetchData();
   }, [config]);
 
-  return { data, loading, error, setConfig };
+  return { data: data, loading, error, setConfig };
 };
 
 export default useApi;

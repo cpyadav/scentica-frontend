@@ -1,21 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import Dropdown from '../Common/Dropdown';
+import useApi from '../Utilities/service';
+import Loader from '../Common/Loader';
+import { BASE_IMAGE_URL, BASE_URL } from '../Utilities/constant';
 
-export default ({ label, multiple,fields, activeStep, count,payload, setPayload, ...props }) => {
+export default ({ label, multiple,fields, activeStep, count,payload, setPayload, pField, ...props }) => {
     const [activeCountry, setActiveCountry] = useState();
     const [countryList, setCountryList] = useState([]);
+
+    const config = {
+        method: 'get',
+        url: `${BASE_URL}categorylist?type=${pField}`,
+        // You can include other Axios configuration options here
+    }
+    const { data, loading, error, setConfig } = useApi();
+
+    useEffect(() => {
+        setConfig(config)
+    }, [pField])
 
 
     useEffect(() => {
         if(activeCountry) {
-            delete payload['market']
-            const activeCountries = fields.filter(d => d.name === activeCountry)[0].countries;
+            const activeCountries = data && data.data.filter(d => d.id === activeCountry)[0].location_data;
             setCountryList(activeCountries)
         }
     },[activeCountry])
 
     return (
         <div className='columns' style={{ position: 'relative' }}>
+            {loading && <Loader />}
             <div className='field-header'>
                 <label>{label}</label>
                 {multiple && <p>You can select maximum 3 options!</p>}
@@ -26,16 +40,16 @@ export default ({ label, multiple,fields, activeStep, count,payload, setPayload,
                 </div>
             </div>
             <div className='avatar-block'>
-                {fields.map((d, index) => {
+                {data && data.data.map((d, index) => {
                     return (
-                        <div key={index} className={activeCountry === d.name ? 'active' : ''}>
-                            <img key={index} src={d.image} onClick={() => setActiveCountry(d.name)} />
+                        <div key={index} className={activeCountry === d.id ? 'active' : ''}>
+                            <img key={index} src={BASE_IMAGE_URL + d.image} onClick={() => setActiveCountry(d.id)} />
                             <span>{d.name}</span>
                         </div>
                     )
                 })}
             </div>
-            <Dropdown {...props} pField='market' title="Market" label="Select Your Market location" placeholder='Select Location' fields={countryList} payload={payload} setPayload={setPayload} />
+            <Dropdown {...props} pField={pField} title="Market" label="Select Your Market location" placeholder='Select Location' fields={countryList} payload={payload} setPayload={setPayload} />
         </div>
     )
 }

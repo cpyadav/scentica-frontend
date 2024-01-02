@@ -6,6 +6,9 @@ import ProductSteps from './component/ProductSteps';
 import ConsumerSteps from './component/ConsumerSteps';
 import FragranceSteps from './component/FragranceSteps';
 import ThankYou from './component/ThankYou';
+import useApi from './component/Utilities/service';
+import { BASE_URL } from './component/Utilities/constant';
+import Loader from './component/Common/Loader';
 
 const LEFT_PANEL = [{
   key: 0,
@@ -32,12 +35,27 @@ const App = () => {
   useEffect(() => {
     if (activePanel === 4) {
       setDisable(true);
+      setConfig(config);
+    }
+  }, [activePanel])
+
+
+  const config = {
+    method: 'post',
+    url: `${BASE_URL}save_client_briefing`,
+    data: payload
+    // You can include other Axios configuration options here
+  }
+  const { data, loading, error, setConfig } = useApi();
+  
+  useEffect(() => {
+    if(data && data.success) {
       setLeftPanel([...leftPanel, {
         key: 4,
         label: 'Thankyou 😊'
       }])
     }
-  }, [activePanel])
+  },[data])
 
   const showStepsBasedOnPanel = () => {
     switch (activePanel) {
@@ -52,9 +70,6 @@ const App = () => {
       case 3:
         return <FragranceSteps setActiveStep={setActiveStep} activePanel={activePanel} setActivePanel={setActivePanel} setSignalIfValid={setSignalIfValid} activeStep={activeStep} payload={payload} setPayload={setPayload} />
 
-      case 4:
-        return <ThankYou />
-
       default:
         break;
     }
@@ -62,9 +77,10 @@ const App = () => {
 
   return (
     <div className={`client-briefing-210 ${disable ? 'disabled' : ''}`}>
+      {loading && <Loader />}
       <div className='client-briefing-210-child'>
         <div className='client-briefing-210-gchild'>
-          {showStepsBasedOnPanel()}
+          {data && data.success ? <ThankYou /> : showStepsBasedOnPanel()}
           {!disable && <div className='text-center'>
             <button disabled={!signalIfValid} onClick={() => {
               if (signalIfValid) setActiveStep(activeStep + 1)

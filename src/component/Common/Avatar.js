@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Loader from './Loader'
 import useApi from '../Utilities/service';
+import { BASE_IMAGE_URL, BASE_URL } from '../Utilities/constant';
 
-export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload, setPayload, fields, activeStep, count }) => {
+export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload, setPayload, activeStep, count }) => {
     const config = {
         method: 'get',
-        url: `https://api.example.com/data?type=${pField}`,
+        url: `${BASE_URL}categorylist?type=${pField}`,
         // You can include other Axios configuration options here
     }
     const { data, loading, error, setConfig } = useApi();
@@ -71,10 +72,10 @@ export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload
                 </div>}
             </div>
             <div className='avatar-block'>
-                {fields && fields.map((d, index) => {
+                {data && data.data.map((d, index) => {
                     return (
-                        <div key={index} className={payload[pField] && payload[pField].includes(d.name) ? 'active' : ''}>
-                            <img key={index} src={d.image} onClick={() => updatePayload(d.name)} />
+                        <div key={index} className={payload[pField] && payload[pField].includes(d.id) ? 'active' : ''}>
+                            <img key={index} src={BASE_IMAGE_URL + d.image} onClick={() => updatePayload(d.id)} />
                             <span>{d.name}</span>
                         </div>
                     )
