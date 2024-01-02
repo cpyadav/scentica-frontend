@@ -15,6 +15,12 @@ export default ({ label, multiple, activeStep, count, payload, setPayload, pFiel
     const { data, loading, error, setConfig } = useApi();
 
     useEffect(() => {
+        if(data && data.success) {
+            setActiveIngredient(1)
+        }
+    },[data])
+
+    useEffect(() => {
         setConfig(config)
     }, [pField])
 

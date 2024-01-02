@@ -15,6 +15,13 @@ export default ({ label, multiple,fields, activeStep, count,payload, setPayload,
     }
     const { data, loading, error, setConfig } = useApi();
 
+
+    useEffect(() => {
+        if(data && data.success) {
+            setActiveCountry(1)
+        }
+    },[data])
+
     useEffect(() => {
         setConfig(config)
     }, [pField])
@@ -23,6 +30,7 @@ export default ({ label, multiple,fields, activeStep, count,payload, setPayload,
     useEffect(() => {
         if(activeCountry) {
             const activeCountries = data && data.data.filter(d => d.id === activeCountry)[0].location_data;
+            console.log(activeCountries)
             setCountryList(activeCountries)
         }
     },[activeCountry])
