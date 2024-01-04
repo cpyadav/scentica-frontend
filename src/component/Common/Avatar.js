@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Loader from './Loader'
 import useApi from '../Utilities/service';
 import { BASE_IMAGE_URL, BASE_URL } from '../Utilities/constant';
@@ -11,10 +11,39 @@ export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload
     }
     const { data, loading, error, setConfig } = useApi();
 
+    const [isLarge, setIsLarge] = useState(false);
+
+    useEffect(() => {
+        const largeImageThreshold = 124;
+
+        // Function to check if the image is large
+        const isImageLarge = (img) => img.naturalWidth > largeImageThreshold || img.naturalHeight > largeImageThreshold;
+
+        // Fetch images from API
+        const images = document.querySelectorAll('.avatar-block img');
+
+        // Check image sizes when images load
+        const handleImageLoad = () => {
+            const isAnyLargeImage = Array.from(images).some(img => isImageLarge(img));
+            setIsLarge(isAnyLargeImage);
+        };
+
+        // Attach load event listener to each image
+        images.forEach(img => {
+            img.addEventListener('load', handleImageLoad);
+        });
+        return () => {
+            // Remove event listeners when component unmounts
+            images.forEach(img => {
+                img.removeEventListener('load', handleImageLoad);
+            });
+        };
+    }, [loading]);
+
 
     useEffect(() => {
         setConfig(config)
-    },[pField])
+    }, [pField])
 
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
@@ -75,7 +104,7 @@ export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload
                 {data && data.data.map((d, index) => {
                     return (
                         <div key={index} className={payload[pField] && payload[pField].includes(d.id) ? 'active' : ''}>
-                            <img key={index} src={BASE_IMAGE_URL + d.image} onClick={() => updatePayload(d.id)} />
+                            <img key={index} className={isLarge ? 'large' : 'small'} src={BASE_IMAGE_URL + d.image} onClick={() => updatePayload(d.id)} />
                             <span>{d.name}</span>
                         </div>
                     )
