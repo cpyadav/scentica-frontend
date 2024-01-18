@@ -512,7 +512,7 @@ button:disabled {
   width: 100%;
   float: left;
   box-sizing: border-box;
-  margin: 30px 0;
+  margin: 0;
 }
 
 /* For devices larger than 400px */
@@ -1139,6 +1139,7 @@ there.
 
 .field-header {
   margin: 25px 0;
+  margin-bottom: 10px;
 }
 
 .bread-crumb li {
@@ -1175,19 +1176,21 @@ there.
 }
 
 .ant-input:hover {
-  border-color: var(--color-lightgreen)!important;
+  border-color: var(--color-lightgreen) !important;
 }
 
 .ant-slider .ant-slider-track {
-  background-color: var(--color-darkgreen)!important;
+  background-color: var(--color-darkgreen) !important;
 }
 
 .ant-slider .ant-slider-handle::after {
   box-shadow: 0 0 0 2px var(--color-darkgreen);
 }
 
-.ant-slider .ant-slider-handle:hover::after, .ant-slider .ant-slider-handle:active::after, .ant-slider .ant-slider-handle:focus::after {
-  box-shadow: 0 0 0 4px var(--color-darkgreen)!important;
+.ant-slider .ant-slider-handle:hover::after,
+.ant-slider .ant-slider-handle:active::after,
+.ant-slider .ant-slider-handle:focus::after {
+  box-shadow: 0 0 0 4px var(--color-darkgreen) !important;
 }
 
 .ant-slider:hover .ant-slider-handle::after {
@@ -1208,7 +1211,7 @@ there.
   line-height: 73px;
   letter-spacing: 0em;
   text-align: center;
-  color: #000000;
+  color: var(--color-black);
 }
 
 .thank-you p {
@@ -1217,5 +1220,80 @@ there.
   line-height: 23px;
   letter-spacing: 0em;
   text-align: center;
-  color: #000000;
+  color: var(--color-black);
+}
+
+
+/* Signup */
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+}
+
+.grid-item {
+  box-sizing: border-box;
+  /* border: 1px solid #ccc; */
+  padding: 20px;
+  width: 50%;
+}
+
+.header {
+  width: 100%;
+  padding-left: 45px;
+}
+
+.left-panel {
+  padding: 50px 45px
+}
+
+.right-panel {
+  padding-right: 35px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.flex-item {
+  width: 48%;
+  margin-bottom: 0px;
+  box-sizing: border-box;
+  /* border: 1px solid #ccc; */
+  padding: 10px 20px;
+  padding-bottom: 0;
+}
+
+h2 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: var(--color-black);
+}
+
+h1 {
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #091133;
+}
+
+h3 {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #686868;
+}
+
+.logo {
+  width: 142px;
+  height: 56px;
 }
