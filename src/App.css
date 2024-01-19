@@ -1311,6 +1311,10 @@ h3 {
   padding-left: 20px;
 }
 
+.log-sign-in a:hover {
+  text-decoration: underline;
+}
+
 .logout {
   position: absolute;
   right: 0;
