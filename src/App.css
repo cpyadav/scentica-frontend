@@ -445,7 +445,7 @@ button:disabled {
   height: 100vh;
   font-size: var(--font-size-sm);
   color: var(--color-gray-300);
-  padding-top: 65px;
+  /* padding-top: 65px; */
   background-color: var(--color-white);
 }
 
@@ -1109,6 +1109,8 @@ there.
 
 .text-center {
   text-align: -webkit-center;
+  clear: both;
+  padding-top: 20px;
 }
 
 .bread-crumb .active {
@@ -1241,6 +1243,7 @@ there.
 .header {
   width: 100%;
   padding-left: 45px;
+  padding-bottom: 40px;
 }
 
 .left-panel {
@@ -1296,4 +1299,33 @@ h3 {
 .logo {
   width: 142px;
   height: 56px;
+}
+
+.log-sign-in {
+  display: flex;
+  align-items: baseline;
+}
+
+.log-sign-in a {
+  text-decoration: none;
+  padding-left: 20px;
+}
+
+.logout {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 5px 15px;
+  background: crimson;
+  color: #fff;
+  border-radius: 25px;
+  font-size: 14px;
+  margin: 10px;
+  opacity: 0.8;
+}
+
+.logout:hover {
+  opacity: 1;
+  cursor: pointer;
 }

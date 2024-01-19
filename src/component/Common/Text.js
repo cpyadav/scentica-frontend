@@ -38,6 +38,7 @@ export default ({ setSignalIfValid, activeStep, count, label, placeholder, pFiel
                 value={payload[pField] || ''}
                 addonBefore={selectBefore}
                 type={type || 'text'}
+                autoComplete={"off"}
             />
         </div>)
 }
