@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../images/MicrosoftTeams-image (3).png'
 
-export default ({ setActivePanel, activePanel, setActiveStep, leftPanel }) => {
+export default ({ activePanel, leftPanel }) => {
   return (
     <div className="rectangle-parent20">
       <div className='header grid-item'>

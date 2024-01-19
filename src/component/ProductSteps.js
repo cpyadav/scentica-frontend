@@ -6,46 +6,9 @@ import Steps from './Steps';
 import { Select } from 'antd';
 import FocusMarket from './Views/FocusMarket';
 import WebsiteLinks from './Views/WebsiteLinks';
-const { Option } = Select;
 
-const OPTIONS = [
-    {
-        title: 'Name',
-        id: 0
-    },
-    {
-        title: 'Category',
-        id: 1
-    },
-    {
-        title: "Type",
-        id: 2
-    },
-    {
-        title: "Packaging",
-        id: 3
-    },
-    {
-        title: "Size",
-        id: 4
-    },
-    {
-        title: "Formate",
-        id: 5
-    },
-    {
-        title: "Market",
-        id: 6
-    },
-    {
-        title: "Price",
-        id: 7
-    },
-    {
-        title: "Website links",
-        id: 8
-    }
-]
+import {PRODUCT_STEPS} from './Utilities/constant'
+const { Option } = Select;
 
 const selectBefore = (
     <Select defaultValue="$">
@@ -57,17 +20,17 @@ const selectBefore = (
 export default (props) => {
     return (
         <Steps {...props}
-            items={OPTIONS}
+            items={PRODUCT_STEPS}
         >
-            <Text count={OPTIONS.length} {...props} pField='name' title='Name' label='Product Name' placeholder='Write your Product Name' />
-            <Avatar count={OPTIONS.length} {...props} pField='category' title='Category' label='Select Product Category' placeholder='Select an industry' />
-            <Avatar count={OPTIONS.length} {...props} pField='type' title="Type" label="Select Product Type" placeholder='' />
-            <Avatar count={OPTIONS.length} {...props} pField='packaging' title="Packaging" label="Select Product Packaging" placeholder='' />
-            <Slider tip="ml" count={OPTIONS.length} {...props} pField='size' title="Size" label="Select Product Size" placeholder='' defaultValue={30} range={false} min={2} max={50} />
-            <Avatar count={OPTIONS.length} {...props} pField='formate' title="Formate" label="Select Product Formate" placeholder='' />
-            <FocusMarket count={OPTIONS.length} {...props} pField='market' title="Market" label="Select Current Markets/ focus Market" placeholder='' />
-            <Text count={OPTIONS.length} {...props} pField='price' label='Select Current / Planned Product Price' placeholder='Enter amount' selectBefore={selectBefore} type={'number'} />
-            <WebsiteLinks count={OPTIONS.length} {...props}  />
+            <Text count={PRODUCT_STEPS.length} {...props} pField='name' title='Name' label='Product Name' placeholder='Write your Product Name' />
+            <Avatar count={PRODUCT_STEPS.length} {...props} pField='category' title='Category' label='Select Product Category' placeholder='Select an industry' />
+            <Avatar count={PRODUCT_STEPS.length} {...props} pField='type' title="Type" label="Select Product Type" placeholder='' />
+            <Avatar count={PRODUCT_STEPS.length} {...props} pField='packaging' title="Packaging" label="Select Product Packaging" placeholder='' />
+            <Slider tip="ml" count={PRODUCT_STEPS.length} {...props} pField='size' title="Size" label="Select Product Size" placeholder='' defaultValue={30} range={false} min={2} max={50} />
+            <Avatar count={PRODUCT_STEPS.length} {...props} pField='formate' title="Formate" label="Select Product Formate" placeholder='' />
+            <FocusMarket count={PRODUCT_STEPS.length} {...props} pField='market' title="Market" label="Select Current Markets/ focus Market" placeholder='' />
+            <Text count={PRODUCT_STEPS.length} {...props} pField='price' label='Select Current / Planned Product Price' placeholder='Enter amount' selectBefore={selectBefore} type={'number'} />
+            <WebsiteLinks count={PRODUCT_STEPS.length} {...props}  />
         </Steps>
     )
 }

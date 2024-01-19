@@ -49,6 +49,7 @@ export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayl
                     <ul className="options-list">
                         {fields.map((option, index) => (
                             <li key={index} onClick={() => handleOptionClick(option.name)}>
+                                {/* <span style={{paddingRight: '5px'}}>{option.emoji}</span> */}
                                 {option.name}
                             </li>
                         ))}

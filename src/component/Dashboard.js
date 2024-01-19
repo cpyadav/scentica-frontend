@@ -11,13 +11,7 @@ import { BASE_URL } from '../component/Utilities/constant';
 import Loader from '../component/Common/Loader';
 import { LogoutOutlined } from '@ant-design/icons';
 
-
-const LEFT_PANEL = [
-    { key: 0, label: 'Tell us about your Business' },
-    { key: 1, label: 'Tell us about your Product' },
-    { key: 2, label: 'Tell us about your Consumer' },
-    { key: 3, label: 'Tell us about Fragrance' }
-];
+import {LEFT_PANEL} from './Utilities/constant'
 
 const initialPayload = {};
 const initialLeftPanel = [...LEFT_PANEL];

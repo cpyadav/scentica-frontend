@@ -28,6 +28,8 @@
     border: 1px solid #ccc;
     background-color: #fff;
     z-index: 1;
+    height: 300px;
+    overflow: auto;
   }
 
   .options-list li {

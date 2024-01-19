@@ -1,12 +1,13 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { Link } from 'react-router-dom';
 // import './App.css';
 import Text from './Common/Text';
 import Logo from '../images/MicrosoftTeams-image (3).png'
 import Checkbox from './Common/Checkbox';
 import Loader from './Common/Loader';
-import { BASE_URL } from './Utilities/constant';
+import { BASE_URL, COUNTRY_CODES } from './Utilities/constant';
 import useApi from './Utilities/service';
+import Dropdown from './Common/Dropdown';
 
 const initialObject = {
     "firstname": null,
@@ -66,7 +67,7 @@ const SignUp = (props) => {
         // You can include other Axios configuration options here
     };
     const { data, loading, setConfig } = useApi();
-    if(data && data.success) {
+    if (data && data.success) {
         localStorage.setItem('token', data.data.access_token);
         props.setToken(data.data.access_token)
     }
@@ -123,8 +124,8 @@ const SignUp = (props) => {
                         pField='phone' title='Name' label='Phone Number' placeholder='With country code' />
                 </div>
                 <div className='flex-item'>
-                    <Text
-                        payload={payload}
+
+                    <Dropdown fields={COUNTRY_CODES} payload={payload}
                         setPayload={(newPayload) => dispatch({ type: SET_PAYLOAD, payload: newPayload })}
                         setSignalIfValid={(newSignal) => dispatch({ type: SET_SIGNAL, signalIfValid: newSignal })}
                         pField='country' title='Name' label='Country' placeholder='Select Country' />
@@ -143,7 +144,7 @@ const SignUp = (props) => {
                         setSignalIfValid={(newSignal) => dispatch({ type: SET_SIGNAL, signalIfValid: newSignal })}
                         pField='password' title='Name' label='Password' placeholder='Your Password' type={'password'} />
                 </div>
-                <div className='flex-item' style={{ width: '100%', paddingTop: '20px' }}>
+                <div className='flex-item' style={{ width: '100%', paddingTop: '50px' }}>
                     <Checkbox
                         payload={payload}
                         setPayload={(newPayload) => dispatch({ type: SET_PAYLOAD, payload: newPayload })}
