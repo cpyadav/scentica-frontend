@@ -1,4 +1,4 @@
-const BASE_IMAGE_URL = 'http://devstaging.in/scentia_images/';
+const BASE_IMAGE_URL = 'http://api.devstaging.in/uploads/';
 const BASE_URL = 'http://api.devstaging.in/';
 
 const BUSINESS_STEPS = [
