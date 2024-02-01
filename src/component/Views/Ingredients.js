@@ -16,7 +16,7 @@ export default ({ label, multiple, activeStep, count, payload, setPayload, pFiel
 
     useEffect(() => {
         if(data && data.success) {
-            setActiveIngredient(1)
+            setActiveIngredient(data.data[0].id)
         }
     },[data])
 
