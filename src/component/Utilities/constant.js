@@ -1,4 +1,4 @@
-const BASE_IMAGE_URL = 'http://devstaging.in/scentia_images/';
+const BASE_IMAGE_URL = 'http://api.devstaging.in/uploads/';
 const BASE_URL = 'http://api.devstaging.in/';
 
 const BUSINESS_STEPS = [
@@ -17,16 +17,73 @@ const BUSINESS_STEPS = [
 ]
 
 const INDUSTRIES = [{
-    name: 'Label 1'
+    name: 'Accessories'
 }, {
-    name: 'Label 2'
+    name: 'Art & Design'
 }, {
-    name: 'Label 3'
+    name: 'Artisanal Fragrances'
 }, {
-    name: 'Label 4'
-}, {
-    name: 'Label 5'
-}]
+    name: 'Bath & Body'
+}, 
+{
+    name: 'Beverages'
+}
+, 
+{
+    name: 'Cars'
+}
+, 
+{
+    name: 'Celebrity'
+}
+, 
+{
+    name: 'Cosmetics'
+}
+, 
+{
+    name: 'Design'
+}
+, 
+{
+    name: 'Fashion'
+}
+, 
+{
+    name: 'Fragrances'
+}
+, 
+{
+    name: 'Jewelry'
+}
+, 
+{
+    name: 'Lifestyle'
+}
+, 
+{
+    name: 'Lingerie'
+}
+, 
+{
+    name: 'Magazine'
+}, 
+{
+    name: 'Natural Perfumery'
+}
+, 
+{
+    name: 'Niche perfumes'
+}
+, 
+{
+    name: 'Retailer'
+}, 
+{
+    name: 'Sport Fashion'
+}
+
+]
 
 const AGE_GROUP = [{
     name: '18-23 yr'
