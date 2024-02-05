@@ -114,6 +114,11 @@ body {
   --shadow-2xl: 0px 24px 48px -12px rgba(16, 24, 40, 0.25);
 }
 
+.overflow {
+  width: 100%;
+  overflow: auto;
+}
+
 button {
   flex-direction: row;
   color: #fff !important;

@@ -88,7 +88,7 @@ export default ({ label, multiple, activeStep, count, payload, setPayload, pFiel
                     <span>/{count})</span>
                 </div>
             </div>
-            <div className='tab-pills'>
+            <div className='tab-pills overflow'>
                 {data && data.data.map((d, index) => {
                     return <span key={index} onClick={() => setActiveIngredient(d.id)} className={activeIngredient === d.id ? 'active' : ''}>{d.name}</span>
                 })}

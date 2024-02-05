@@ -31,7 +31,7 @@ export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayl
                     <span>/{count})</span>
                 </div>
             </div>
-            <div className='tab-pills'>
+            <div className='tab-pills overflow'>
                 {fields.map((d, index) => {
                     return <span key={index} onClick={() => updatePayload(d.name)} className={payload[pField] === d.name ? 'active' : ''}>{d.name}</span>
                 })}

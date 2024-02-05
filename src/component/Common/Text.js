@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Input } from 'antd';
 
-export default ({ setSignalIfValid, activeStep, count, label, placeholder, pField, payload, setPayload, selectBefore, type }) => {
+export default ({ setSignalIfValid, activeStep, count, label, placeholder, pField, payload, setPayload, selectBefore, type, validation }) => {
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
     }
 
     useEffect(() => {
         if (payload[pField]) {
-            signalParent(true)
+            if(validation) {
+                signalParent(validation(payload[pField]))
+            }
+            else {
+                signalParent(true)
+            }
         }
         else {
             signalParent(false)

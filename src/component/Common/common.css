@@ -48,8 +48,8 @@
   .tab-pills {
     /* margin: 25px 0; */
     display: flex;
-    width: 100%;
-    overflow: auto;
+    /* width: 100%; */
+    /* overflow: auto; */
   }
 
   .tab-pills > span {
@@ -96,6 +96,12 @@
     background-color: var(--color-darkgreen);
     box-shadow: 0px 8px 11px 0px #00000059;
     border: 1px solid var(--color-darkgreen);
+  }
+
+  .avatar-block > div.active span {
+    background: var(--color-darkgreen);
+    color: #fff;
+    border: 1px solid transparent;
   }
 
   .avatar-block img {

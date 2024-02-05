@@ -3,7 +3,7 @@ import Loader from './Loader'
 import useApi from '../Utilities/service';
 import { BASE_IMAGE_URL, BASE_URL } from '../Utilities/constant';
 
-export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload, setPayload, activeStep, count }) => {
+export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload, setPayload, activeStep, count, tabs }) => {
     const config = {
         method: 'get',
         url: `${BASE_URL}categorylist?type=${pField}&catId=${payload['category']}`,
@@ -102,9 +102,16 @@ export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload
             </div>
             <div className='avatar-block'>
                 {data && data.data.map((d, index) => {
+                    const isActive = payload[pField] && payload[pField].includes(d.id);
+                    const sizeClass = isLarge ? 'large' : 'small';
+
                     return (
-                        <div key={index} className={payload[pField] && payload[pField].includes(d.id) ? 'active' : ''}>
-                            <img key={index} className={isLarge ? 'large' : 'small'} src={BASE_IMAGE_URL + d.image} onClick={() => updatePayload(d.id)} />
+                        <div             
+                            className={` ${tabs ? 'tab-pills' : ''} ${isActive ? 'active' : ''}`}
+                            key={index}
+                            onClick={() => updatePayload(d.id)}
+                        >
+                            {!tabs && <img key={index} className={isLarge ? 'large' : 'small'} src={BASE_IMAGE_URL + d.image} />}
                             <span>{d.name}</span>
                         </div>
                     )
