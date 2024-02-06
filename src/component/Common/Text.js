@@ -8,7 +8,7 @@ export default ({ setSignalIfValid, activeStep, count, label, placeholder, pFiel
 
     useEffect(() => {
         if (payload[pField]) {
-            if(validation) {
+            if (validation) {
                 signalParent(validation(payload[pField]))
             }
             else {
@@ -16,7 +16,12 @@ export default ({ setSignalIfValid, activeStep, count, label, placeholder, pFiel
             }
         }
         else {
-            signalParent(false)
+            if (pField == 'benchmark' || pField == 'web_link') {
+                signalParent(true)
+            }
+            else {
+                signalParent(false)
+            }
         }
     }, [payload[pField]])
 
