@@ -4,7 +4,7 @@ import axios from 'axios';
 const useApi = (initialConfig) => {
   const [config, setConfig] = useState(initialConfig);
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -19,7 +19,9 @@ const useApi = (initialConfig) => {
         setLoading(false);
       }
     };
-    fetchData();
+    if(config) {
+      fetchData();
+    }
   }, [config]);
 
   return { data: data, loading, error, setConfig };

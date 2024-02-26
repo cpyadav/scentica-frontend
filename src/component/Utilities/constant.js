@@ -86,15 +86,17 @@ const INDUSTRIES = [{
 ]
 
 const AGE_GROUP = [{
-    name: '18-23 yr'
+    name: 'Infant'
 }, {
-    name: '23-28 yr'
+    name: 'Child'
 }, {
-    name: '28-33 yr'
+    name: 'Teenager'
 }, {
-    name: '33-37 yr'
+    name: 'Youth'
 }, {
-    name: 'Above 37 yr'
+    name: 'Adults ( 25-50)'
+}, {
+    name: 'Senior Citizens'
 }]
 
 const GENDER = [{

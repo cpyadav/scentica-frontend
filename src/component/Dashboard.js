@@ -9,6 +9,7 @@ import ThankYou from '../component/ThankYou';
 import useApi from '../component/Utilities/service';
 import { BASE_URL } from '../component/Utilities/constant';
 import Loader from '../component/Common/Loader';
+import Notification from '../component/Common/Notification';
 import { LogoutOutlined } from '@ant-design/icons';
 import { isNotNullOrUndefined, isNotEmptyArray } from '../component/Utilities/validation';
 
@@ -87,7 +88,7 @@ const Dashboard = (props) => {
     // Destructuring state for easier use
     const { payload, activePanel, activeStep, signalIfValid, disable, leftPanel, formComplete } = state;
 
-    const { data, loading, setConfig } = useApi();
+    const { data, loading, setConfig, error } = useApi();
 
     const showStepsBasedOnPanel = () => {
         switch (activePanel) {
@@ -148,11 +149,13 @@ const Dashboard = (props) => {
     };
 
     const onFormSubmit = () => {
-            dispatch({ type: SET_DISABLE, disable: true });
             const config = {
                 method: 'post',
                 url: `${BASE_URL}save_client_briefing`,
-                data: payload
+                data: payload,
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
                 // You can include other Axios configuration options here
             };
             setConfig(config);
@@ -176,6 +179,7 @@ const Dashboard = (props) => {
 
     useEffect(() => {
         if (data && data.success) {
+            dispatch({ type: SET_DISABLE, disable: true });
             dispatch({ type: SET_LEFT_PANEL, leftPanel: [...leftPanel, { key: 4, label: 'Thank you 😊' }] });
         }
     }, [data]);
@@ -190,6 +194,7 @@ const Dashboard = (props) => {
                 <LogoutOutlined />
             </span>
             {loading && <Loader />}
+            {error && <Notification status={'error'} message={error.response.data.message}/>}
             <div className='client-briefing-210-child'>
                 <div className='client-briefing-210-gchild'>
                     {data && data.success ? <ThankYou /> : showStepsBasedOnPanel()}
