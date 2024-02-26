@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Loader from './Loader'
 import useApi from '../Utilities/service';
 import { BASE_IMAGE_URL, BASE_URL } from '../Utilities/constant';
+import Text from './Text';
 
-export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload, setPayload, activeStep, count, tabs }) => {
+export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload, setPayload, activeStep, count, tabs, commentField }) => {
     const config = {
         method: 'get',
         url: `${BASE_URL}categorylist?type=${pField}&catId=${payload['category']}`,
@@ -106,16 +107,21 @@ export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload
                     const sizeClass = isLarge ? 'large' : 'small';
 
                     return (
-                        <div             
-                            className={` ${tabs ? 'tab-pills' : ''} ${isActive ? 'active' : ''}`}
-                            key={index}
-                            onClick={() => updatePayload(d.id)}
-                        >
-                            {!tabs && <img key={index} className={isLarge ? 'large' : 'small'} src={BASE_IMAGE_URL + d.image} />}
-                            <span>{d.name}</span>
-                        </div>
+                        <>
+                            <div
+                                className={` ${tabs ? 'tab-pills' : ''} ${isActive ? 'active' : ''}`}
+                                key={index}
+                                onClick={() => updatePayload(d.id)}
+                            >
+                                {!tabs && <img key={index} className={isLarge ? 'large' : 'small'} src={BASE_IMAGE_URL + d.image} />}
+                                <span>{d.name}</span>
+                            </div>
+                        </>
                     )
                 })}
+
+                {commentField &&
+                    <Text setSignalIfValid={setSignalIfValid} payload={payload} setPayload={setPayload} count={false} pField={commentField} placeholder='Comment...' />}
             </div>
         </div>
     )

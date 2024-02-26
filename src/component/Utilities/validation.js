@@ -8,5 +8,9 @@ const email = value => {
 
 const url = (value) => value && /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/i.test(value)
 
+const isNotNullOrUndefined = (value) => value !== null && value !== undefined;
 
-export {hasNullOrUndefinedOrEmpty, email, url}
+const isNotEmptyArray = (array) => Array.isArray(array) && array.length > 0;
+
+
+export {hasNullOrUndefinedOrEmpty, email, url, isNotNullOrUndefined, isNotEmptyArray}

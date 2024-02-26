@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import Text from './Text'
 
-export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayload, fields, activeStep, count }) => {
+export default ({ setSignalIfValid, label, commentField, pField, payload, setPayload, fields, activeStep, count }) => {
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
     }
@@ -36,5 +37,7 @@ export default ({ setSignalIfValid, label, placeholder, pField, payload, setPayl
                     return <span key={index} onClick={() => updatePayload(d.name)} className={payload[pField] === d.name ? 'active' : ''}>{d.name}</span>
                 })}
             </div>
+            {commentField &&
+                    <Text setSignalIfValid={setSignalIfValid} payload={payload} setPayload={setPayload} count={false} pField={commentField} placeholder='Comment...' />}
         </div>)
 }
