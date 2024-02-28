@@ -95,7 +95,7 @@
   .avatar-block > div.active img {
     background-color: var(--color-darkgreen);
     box-shadow: 0px 8px 11px 0px #00000059;
-    border: 1px solid var(--color-darkgreen);
+    border: 2px solid var(--color-darkgreen);
   }
 
   .tab-pills.active span {

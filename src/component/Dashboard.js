@@ -27,6 +27,7 @@ const initialPayload = {
     "formate": [],
     "market": null,
     "price": null,
+    "price_currency": 'USD',
     "web_link": null,
     "age_gp": null,
     "gender": null,

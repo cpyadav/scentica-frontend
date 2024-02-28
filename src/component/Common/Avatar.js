@@ -5,9 +5,10 @@ import { BASE_IMAGE_URL, BASE_URL } from '../Utilities/constant';
 import Text from './Text';
 
 export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload, setPayload, activeStep, count, tabs, commentField }) => {
+    const [search, setSearch] = useState('');
     const config = {
         method: 'get',
-        url: `${BASE_URL}categorylist?type=${pField}&catId=${payload['category']}`,
+        url: `${BASE_URL}categorylist?type=${pField}&saerchParams=${search}&catId=${payload['category']}`,
         // You can include other Axios configuration options here
     }
     const { data, loading, error, setConfig } = useApi();
@@ -44,7 +45,7 @@ export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload
 
     useEffect(() => {
         setConfig(config)
-    }, [pField])
+    }, [pField,search])
 
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
@@ -101,6 +102,14 @@ export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload
                     <span>/{count})</span>
                 </div>}
             </div>
+            <input type='text' 
+                placeholder='Search here...' 
+                style={{height: '35px',width: '25%'}}
+                onChange={e => {
+                    setSearch(e.target.value)
+                }}
+                value={search}
+            />
             <div className='avatar-block'>
                 {data && data.data.map((d, index) => {
                     const isActive = payload[pField] && payload[pField].includes(d.id);

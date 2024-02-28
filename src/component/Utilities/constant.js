@@ -184,19 +184,19 @@ const PRODUCT_STEPS = [
         id: 1
     },
     {
-        title: "Type",
+        title: "Formate",
         id: 2
     },
     {
-        title: "Packaging",
+        title: "Type",
         id: 3
     },
     {
-        title: "Size",
+        title: "Packaging",
         id: 4
     },
     {
-        title: "Formate",
+        title: "Size",
         id: 5
     },
     {
