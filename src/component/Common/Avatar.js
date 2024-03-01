@@ -44,15 +44,8 @@ export default ({ setSignalIfValid, label, multiple, showMLabel, pField, payload
 
 
     useEffect(() => {
-        setSearch('')
         setConfig(config)
-    }, [pField])
-
-    useEffect(() => { 
-        // if(search) {
-            setConfig(config)
-        // }
-    }, [search])
+    }, [pField,search])
 
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)

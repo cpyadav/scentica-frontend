@@ -32,7 +32,7 @@ export default ({items, activeStep, children, setActivePanel, activePanel, setAc
                 itemRender={itemRender}
             />
             {filteredChildren.map((child, index) => (
-                React.cloneElement(child, { key: index, ...items[index] })
+                React.cloneElement(child, { key: `${child.props.pField}-${activeStep}`, ...items[index] })
             ))}
         </>
     )
