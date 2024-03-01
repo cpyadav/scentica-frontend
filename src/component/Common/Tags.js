@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Text from './Text'
 
-export default ({ setSignalIfValid, label, commentField, pField, payload, setPayload, fields, activeStep, count }) => {
+export default ({ setSignalIfValid, label, commentField, pField, payload, setPayload, fields, activeStep, count, multiple }) => {
     const signalParent = (isValid) => {
         setSignalIfValid(isValid)
     }
@@ -15,11 +15,33 @@ export default ({ setSignalIfValid, label, commentField, pField, payload, setPay
         }
     }, [payload[pField]])
 
+    const handleTagsClick = (tagId) => {
+        const field = payload[pField] || [];
+        if (field.includes(tagId)) {
+            setPayload({
+                ...payload,
+                [pField]: field.filter((id) => id !== tagId)
+            })
+        } else {
+            setPayload({
+                ...payload,
+                [pField]: [...field, tagId]
+            })
+        }
+        // Otherwise, do nothing (limit reached)
+    };
+
+
     const updatePayload = (val) => {
-        setPayload({
-            ...payload,
-            [pField]: val
-        })
+        if (multiple) {
+            handleTagsClick(val)
+        }
+        else {
+            setPayload({
+                ...payload,
+                [pField]: [val]
+            })
+        }
     }
 
     return (
@@ -34,7 +56,8 @@ export default ({ setSignalIfValid, label, commentField, pField, payload, setPay
             </div>
             <div className='tab-pills overflow'>
                 {fields.map((d, index) => {
-                    return <span key={index} onClick={() => updatePayload(d.name)} className={payload[pField] === d.name ? 'active' : ''}>{d.name}</span>
+                    const isActive = payload[pField] && payload[pField].includes(d.name);
+                    return <span key={index} onClick={() => updatePayload(d.name)} className={isActive ? 'active' : ''}>{d.name}</span>
                 })}
             </div>
             {commentField &&

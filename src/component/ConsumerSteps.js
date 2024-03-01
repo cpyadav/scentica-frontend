@@ -11,7 +11,7 @@ export default (props) => {
             items={CONSUMER_STEPS}
         >
             <Dropdown count={CONSUMER_STEPS.length} {...props} fields={AGE_GROUP} pField='age_gp' title='Age Group' label='Select Consumer Age Group' placeholder='Select Age Group' />
-            <Tags count={CONSUMER_STEPS.length} {...props} pField='gender' title='Gender' label='Select Consumer Gender' placeholder='Select Consumer Gender' fields={GENDER} />
+            <Tags count={CONSUMER_STEPS.length} multiple={true} {...props} pField='gender' title='Gender' label='Select Consumer Gender' placeholder='Select Consumer Gender' fields={GENDER} />
             <Tags count={CONSUMER_STEPS.length} {...props} pField='tg_user_occup' commentField={'occupation_tg_user_occup'} title="Occupation" label="Select Consumer Occupation" placeholder='Select Consumer Occupation' fields={OCCUPATION} />
         </Steps>
     )
