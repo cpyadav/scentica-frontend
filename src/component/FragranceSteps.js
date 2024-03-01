@@ -15,14 +15,14 @@ export default (props) => {
             // nextButton={{ title: 'Next >' }}
             items={FRAGRANCE_STEPS}
         >
-            <Avatar key={'smell'} showMLabel={true} multiple={true} count={FRAGRANCE_STEPS.length} {...props} pField='smell' label="Select Fragrance smell" placeholder='' />
-            <Avatar key={'olfactive_dir'} showMLabel={true} multiple={true} count={FRAGRANCE_STEPS.length} {...props} pField='oflactive_dir' label="Select Oflactive Directions" placeholder=''/>
-            <Ingredients count={FRAGRANCE_STEPS.length} {...props} pField='ingredients' title="Market" label="Select Current Markets/ focus Market" placeholder='' multiple={true} />
-            <Avatar key={'emotions'} showMLabel={true} multiple={true} count={FRAGRANCE_STEPS.length} {...props} pField='emotions' label="Select Emotions" placeholder='' />
-            <Avatar key={'colors'} showMLabel={true} multiple={true} count={FRAGRANCE_STEPS.length} {...props} pField='colors' label="Select Colors" placeholder='' />
-            <Slider tip="%" count={FRAGRANCE_STEPS.length} {...props} pField='dosage' label="Select Dosage" placeholder='' defaultValue={[20, 35]} range={true} min={2} max={50} />
-            <TextRange type={'number'} pFrom={'Min'} pTo={'Max'} count={FRAGRANCE_STEPS.length} {...props} pField='price_range' label='Select price range' placeholder='price' />
-            <Text count={FRAGRANCE_STEPS.length} {...props} pField='ref_link' label='Share Fragrance Benchmark' placeholder='Past perfume refrence links in the box' />
+            <Avatar key={props.activeStep} showMLabel={true} multiple={true} count={FRAGRANCE_STEPS.length} {...props} pField='smell' label="Select Fragrance smell" placeholder='' />
+            <Avatar key={props.activeStep} showMLabel={true} multiple={true} count={FRAGRANCE_STEPS.length} {...props} pField='oflactive_dir' label="Select Oflactive Directions" placeholder=''/>
+            <Ingredients key={props.activeStep} count={FRAGRANCE_STEPS.length} {...props} pField='ingredients' title="Market" label="Select Current Markets/ focus Market" placeholder='' multiple={true} />
+            <Avatar key={props.activeStep} showMLabel={true} multiple={true} count={FRAGRANCE_STEPS.length} {...props} pField='emotions' label="Select Emotions" placeholder='' />
+            <Avatar key={props.activeStep} showMLabel={true} multiple={true} count={FRAGRANCE_STEPS.length} {...props} pField='colors' label="Select Colors" placeholder='' />
+            <Slider key={props.activeStep} tip="%" count={FRAGRANCE_STEPS.length} {...props} pField='dosage' label="Select Dosage" placeholder='' defaultValue={[20, 35]} range={true} min={2} max={50} />
+            <TextRange key={props.activeStep} type={'number'} pFrom={'Min'} pTo={'Max'} count={FRAGRANCE_STEPS.length} {...props} pField='price_range' label='Select price range' placeholder='price' />
+            <Text key={props.activeStep} count={FRAGRANCE_STEPS.length} {...props} pField='ref_link' label='Share Fragrance Benchmark' placeholder='Past perfume refrence links in the box' />
         </Steps>
     )
 }
