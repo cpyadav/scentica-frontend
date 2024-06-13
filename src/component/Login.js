@@ -97,7 +97,7 @@ const Login = (props) => {
                 {<div className='flex-item' style={{ width: '100%', paddingTop: '20px' }}>
                     <div className='log-sign-in'>
                         <button disabled={!isActive} onClick={() => { login() }}>{'Submit'}</button>
-                        <Link to ='/signup'>{'Sign Up'}</Link>
+                        // <Link to ='/signup'>{'Sign Up'}</Link>
                     </div>
                 </div>}
             </div>
