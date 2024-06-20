@@ -19,7 +19,8 @@ const App = () => {
           element={token ? <Dashboard setToken={setToken} /> : <Navigate to="/login" />}
         />
         {/* Optional: Redirect from the root to login */}
-        <Route path="/" element={token ? <Dashboard /> : <Navigate to="/login" />} />
+        {/* <Route path="/" element={token ? <Dashboard /> : <Navigate to="/login" />} /> */}
+        <Route path="/" element={<Dashboard />} />
       </Routes>
     </Router>
   );
