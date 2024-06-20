@@ -1,5 +1,5 @@
-const BASE_IMAGE_URL = 'http://api.devstaging.in/uploads/';
-const BASE_URL = 'http://api.devstaging.in/';
+const BASE_IMAGE_URL = 'http://api.luxuryaromatics.com/uploads/';
+const BASE_URL = 'http://api.luxuryaromatics.com/';
 
 const BUSINESS_STEPS = [
     {
